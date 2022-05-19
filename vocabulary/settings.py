@@ -16,7 +16,7 @@ SECRET_KEY = 'django-insecure-r-or^wl-l6@#kxf7uo9rbtnqa)yhz&gerdzy_%8x@483&w2du3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["vocabnow.herokuapp.com", "127.0.0.1:8000"]
 
 
 # Application definition
