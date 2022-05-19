@@ -26,7 +26,7 @@ export default function App(){
     // }, [words, definitions, poses])
 
     function fetchWords(){
-        // console.log("Fetching words...")
+        console.log("Fetching words...")
         fetch("api/get-words")
         .then(response => response.json())
         .then(data => {
@@ -66,6 +66,8 @@ export default function App(){
     }
 
     function handleSubmit(){
+        console.log("Adding word...")
+
         const body = {
             word: wordToAdd,
             definition: definitionToAdd,
