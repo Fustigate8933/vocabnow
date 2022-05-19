@@ -1,0 +1,42 @@
+body {
+    margin: 0px;
+    font-family: 'Varela Round', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+    margin: 0px;
+}
+
+#app {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-soft-black {
+    color: #3b444b;
+}
+.block {
+    display: block
+}
+
+.text-field{
+    width: calc(100% - 10px);
+    margin: 10px;
+}
+
+.height-inherit {
+    height: inherit
+}
+
+#add-button {
+    height: 56px;
+    width: 100%;
+    font-weight: bold;
+}
