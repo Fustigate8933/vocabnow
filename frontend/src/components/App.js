@@ -25,17 +25,13 @@ export default function App(){
     //     console.log(poses)
     // }, [words, definitions, poses])
 
-    function fetchWords(){
+    let fetchWords = async () => {
         console.log("Fetching words...")
-        fetch("api/get-words")
-        .then(response => response.json())
-        .then(data => {
-            // console.log("data: ")
-            // console.log(data.info)
-            setWords(data.info.words)
-            setDefinitions(data.info.definitions)
-            setPoses(data.info.poses)
-        })
+        let response = await fetch("api/get-words")
+        let data = await response.json()
+        setWords(data.info.words)
+        setDefinitions(data.info.definitions)
+        setPoses(data.info.poses)
     }
 
     function handleWordChange(e){
@@ -65,7 +61,7 @@ export default function App(){
         return cookieValue;
     }
 
-    function handleSubmit(){
+    let handleSubmit = async () => {
         console.log("Adding word...")
 
         const body = {
@@ -83,15 +79,12 @@ export default function App(){
             body: JSON.stringify(body)
 		}
 
-        fetch("api/add-word", payload)
-        .then(response => response.json())
-        .then(data => {
-            // console.log("Word added!")
-            fetchWords()
-        })
+        let response = await fetch("api/add-word", payload)
+        let data = await response.json()
+        fetchWords()
     }
 
-    function handleDelete(e){
+    let handleDelete = async (e) => {
         let word = e.target.value
         const body = {
             word: word,
@@ -105,11 +98,9 @@ export default function App(){
             body: JSON.stringify(body)
         }
 
-        fetch("api/delete-word", payload)
-        .then(response => response.json())
-        .then(data => {
-            fetchWords()
-        })
+        let response = await fetch("api/delete-word", payload)
+        let data = await response.json()
+        fetchWords()
     }
 
     return(
