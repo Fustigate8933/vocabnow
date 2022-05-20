@@ -14,7 +14,7 @@ def get_words(request):
     load_dotenv(find_dotenv())
     password = os.environ.get("MONGODB_PWD")
     connection_string = f"mongodb+srv://Fustigate8933:{password}@cluster0.7kfxy.mongodb.net/?retryWrites=true&w=majority"
-    client = MongoClient(connection_string)
+    client = MongoClient(connection_string, connect=False)
     word_db = client.Word
     words = word_db.Word
     def get_all_words():
@@ -50,7 +50,7 @@ def add_word(request):
         load_dotenv(find_dotenv())
         password = os.environ.get("MONGODB_PWD")
         connection_string = f"mongodb+srv://Fustigate8933:{password}@cluster0.7kfxy.mongodb.net/?retryWrites=true&w=majority"
-        client = MongoClient(connection_string)
+        client = MongoClient(connection_string, connect=False)
         word_db = client.Word
         def insert_word(wrd, dfn, pos):
             collection = word_db.Word
@@ -75,7 +75,7 @@ def delete_word(request):
             load_dotenv(find_dotenv())
             password = os.environ.get("MONGODB_PWD")
             connection_string = f"mongodb+srv://Fustigate8933:{password}@cluster0.7kfxy.mongodb.net/?retryWrites=true&w=majority"
-            client = MongoClient(connection_string)
+            client = MongoClient(connection_string, connect=False)
             word_db = client.Word
             words = word_db.Word
             def del_wd(wd_id):
